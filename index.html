@@ -1,0 +1,66 @@
+<head>
+  <style>
+    body {
+      background: #000;
+    }
+
+    h1, a, h3 {
+      color: white;
+    }
+  </style>
+  <script src='jha-4.js'></script>
+  <h1>Javascript hashing algorithm (<strike>S</strike>JHA-<strike>3</strike>4)</h1>
+  <h3>Type a password:</h3>
+</head>
+
+<body>
+  <input id='input' placeholder="password" autofocus></input>
+  <a id='outputBasic'>
+    <br>Basic encryption: (type a password up and press enter)</a>
+  <a id='outputAdvanced'>
+    <br>Advanced encryption: (type a password up and press enter)</a>
+  <a id='outputMultiplied' comment='Sorry, too powerful'></a>
+  <a id='outputArrayed'>
+    <br>Arrayed encryption: (type a password up and press enter)</a>
+  <a id='outputSalted'>
+    <br>Salted encryption: (type a password up and press enter)</a>
+  <a id='outputFast'>
+    <br>Fast encryption: (type a password up and press enter)</a>
+  <a id='outputCheck'>
+    <br>Check if the password is "3X4MP13": (type a password up and press enter)</a>
+  </br>
+  </br>
+  </br>
+  <script>
+    inp = document.getElementById("input");
+    outp = document.getElementById("outputBasic");
+    adv = document.getElementById("outputAdvanced");
+    // multiplied = document.getElementById("outputMultiplied");
+    arrayd = document.getElementById("outputArrayed");
+    salted = document.getElementById("outputSalted");
+    fast = document.getElementById("outputFast");
+    check = document.getElementById("outputCheck");
+
+    function write(output, contents) {
+      output.textContent = contents;
+      output.innerHTML = "<br>" + output.innerHTML;
+    }
+
+    function writeadd(output, contents) {
+      output.innerHTML += "<br />" + contents;
+    }
+
+    inp.onchange = function() {
+      write(outputBasic, "Basic encryption: " + singleEncrypt(inp.value, 32, "0123456789"))
+      write(outputAdvanced, "Advanced encryption: " + singleEncrypt(inp.value, 33, "+-++--*/10"))
+      write(outputArrayed, "Arrayed encryption: " + singleEncrypt(inp.value, 32, 'zero ;one ;two ;three ;four ;five ;six ;seven ;eight ;nine '.split(";")))
+      write(outputSalted, "Salted encryption: " + singleEncrypt(inp.value, 32, '1234567890', 'saltySkidLmao'))
+      write(outputFast, "Fast encryption: " + singleEncrypt(inp.value, inp.value.length, "0123456789"))
+      write(outputCheck, "Check if the password is \"3X4MP13\": " + singleEncrypt(inp.value, 34, "0123456789",'',"51003509626995134784861850206290145100350962699513478486185020629014"))
+    }
+
+    myEncryptorExample = new Encryptor()
+    myEncryptorExample.encr("password", 30, "encriptedlmao", 'saltXD')
+    console.log(myEncryptorExample.last + " -> " + myEncryptorExample.laste + " <- " + myEncryptorExample.lastS)
+  </script>
+</body>
