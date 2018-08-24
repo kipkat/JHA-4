@@ -6,7 +6,7 @@ Script sources:
 + obfuscated: https://raw.githubusercontent.com/kipkat/JHA-4/master/jha-4.obf.js
 + dev: https://raw.githubusercontent.com/kipkat/JHA-4/master/jha-4.js
 ```html
-<script src='https://raw.githubusercontent.com/kipkat/JHA-4/master/jha-4.min.js'></script>
+<script src="https://cdn.rawgit.com/kipkat/JHA-4/master/jha-4.min.js"></script>
 ```
 Example of simple usage:
 ```js
